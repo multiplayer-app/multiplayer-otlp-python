@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "multiplayer-opentelemetry"
 description = "Multiplayer OpenTelemetry Python API"
-readme = "README.rst"
+readme = "README.md"
 license = {text = "Apache-2.0"}
 requires-python = ">=3.8"
 authors = [
@@ -57,7 +57,7 @@ path = "src/multiplayer/opentelemetry/version/__init__.py"
 allow-direct-references = true
 
 [tool.hatch.build.targets.sdist]
-include = ["src/multiplayer", "README.rst", "LICENSE"]
+include = ["src/multiplayer", "README.md", "LICENSE"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/multiplayer"]
