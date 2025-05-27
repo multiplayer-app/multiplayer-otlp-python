@@ -1,14 +1,14 @@
 import random
 from opentelemetry import trace
 from opentelemetry.sdk.trace.id_generator import RandomIdGenerator
-from .sampler import MultiplayerTraceIdRatioBasedSampler
+from opentelemetry.sdk.trace.sampling import TraceIdRatioBased
 from ...opentelemetry.constants import MULTIPLAYER_TRACE_DOC_PREFIX
 
 class MultiplayerRandomIdGenerator(RandomIdGenerator):
     def __init__(self, autoDocTracesRatio: float = 0):
         super().__init__()
         self.autoDocTracesRatio = autoDocTracesRatio
-        self.docSpanSampler = MultiplayerTraceIdRatioBasedSampler(autoDocTracesRatio)
+        self.docSpanSampler = TraceIdRatioBased(autoDocTracesRatio)
 
     def generate_span_id(self) -> int:
         span_id = random.getrandbits(64)
